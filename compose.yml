@@ -1,0 +1,18 @@
+services: 
+  db:
+    container_name: prisma_db
+    image: postgres:alpine
+    restart: always
+    environment: 
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: prismadb
+    ports: 
+      - "5432:5432"
+
+  adminer:
+    container_name: prisma_db_test
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
